@@ -3,7 +3,7 @@
 // Base metadata that applies to all pages
 export const siteConfig = {
   name: "Kuih Bakar Malaysian Delights",
-  description: "Authentic Malaysian desserts and dishes, featuring traditional Kuih Bakar and Nasi Lemak prepared with premium ingredients and authentic recipes.",
+  description: "Authentic Malaysian Kuih Bakar - Traditional pandan coconut cake made with premium ingredients following authentic recipes. The best Kuih Bakar in Malaysia.",
   url: "https://kuih-bakar.com",
   ogImage: "/images/og-image.jpg", // This should be created and placed in the public folder
   links: {
@@ -12,11 +12,15 @@ export const siteConfig = {
     instagram: "https://instagram.com/kuihbakar"
   },
   keywords: [
-    "Malaysian food",
     "Kuih Bakar",
-    "Nasi Lemak",
-    "Traditional Malaysian desserts",
-    "Authentic Malaysian cuisine",
+    "Malaysian Kuih Bakar",
+    "Traditional Kuih Bakar",
+    "Best Kuih Bakar",
+    "Authentic Kuih Bakar",
+    "Pandan Kuih Bakar",
+    "Coconut Kuih Bakar",
+    "Malaysian desserts",
+    "Traditional Malaysian cake",
     "Malaysian delicacies",
     "Pandan desserts",
     "Coconut milk desserts",
@@ -46,20 +50,23 @@ export function generateMetadata({
   description,
   path,
   ogImage = siteConfig.ogImage,
+  keywords = [],
 }: {
   title: string;
   description?: string;
   path: string;
   ogImage?: string;
+  keywords?: string[];
 }) {
   const fullTitle = `${title} | ${siteConfig.name}`;
   const fullDescription = description || siteConfig.description;
   const url = `${siteConfig.url}${path}`;
+  const combinedKeywords = [...new Set([...keywords, ...siteConfig.keywords])];
   
   return {
     title: fullTitle,
     description: fullDescription,
-    keywords: siteConfig.keywords,
+    keywords: combinedKeywords,
     authors: siteConfig.authors,
     creator: siteConfig.creator,
     metadataBase: new URL(siteConfig.url),
