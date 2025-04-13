@@ -2,16 +2,7 @@
 
 import { useState } from 'react';
 import MainLayout from '../components/MainLayout';
-import { generateMetadata } from '../seo-config';
-import type { Metadata } from 'next';
 import Script from 'next/script';
-
-// Export metadata for the Contact page
-export const metadata: Metadata = generateMetadata({
-  title: "Contact Us",
-  description: "Get in touch with Kuih Bakar Malaysian Delights. Contact us for inquiries about our authentic Malaysian desserts, catering services, or to place an order.",
-  path: "/contact",
-});
 
 // Structured data for local business
 const structuredData = {
