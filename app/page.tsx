@@ -6,12 +6,20 @@ import type { Metadata } from "next";
 import Script from 'next/script';
 
 export const metadata: Metadata = generateMetadata({
-  title: "Home",
-  description: "Experience authentic Malaysian delights with our traditional Kuih Bakar and Nasi Lemak, prepared with premium ingredients and love.",
+  title: "Authentic Kuih Bakar - Malaysian Traditional Pandan Coconut Cake",
+  description: "Experience authentic Malaysian Kuih Bakar - a traditional pandan coconut cake made with premium ingredients following authentic recipes. The best Kuih Bakar in Malaysia.",
   path: "/",
+  keywords: [
+    "Kuih Bakar",
+    "Malaysian Kuih Bakar",
+    "Traditional Kuih Bakar",
+    "Authentic Kuih Bakar recipe",
+    "Best Kuih Bakar in Malaysia",
+    "Pandan coconut cake"
+  ]
 });
 
-// Structured data for organization
+// Structured data for organization and website
 const structuredData = {
   "@context": "https://schema.org",
   "@type": "Organization",
@@ -29,7 +37,45 @@ const structuredData = {
     "contactType": "customer service",
     "availableLanguage": ["English", "Malay"]
   },
-  "description": "Authentic Malaysian desserts and dishes, featuring traditional Kuih Bakar and Nasi Lemak prepared with premium ingredients and authentic recipes."
+  "description": "Authentic Malaysian Kuih Bakar - Traditional pandan coconut cake made with premium ingredients following authentic recipes. The best Kuih Bakar in Malaysia."
+};
+
+// Structured data for local business
+const localBusinessData = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Kuih Bakar Malaysian Delights",
+  "image": "https://kuih-bakar.com/images/kuih-bakar-header.png",
+  "@id": "https://kuih-bakar.com",
+  "url": "https://kuih-bakar.com",
+  "telephone": "+60 12-345 6789",
+  "priceRange": "RM",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "123 Jalan Bukit Bintang",
+    "addressLocality": "Kuala Lumpur",
+    "postalCode": "50200",
+    "addressCountry": "MY"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 3.1478,
+    "longitude": 101.7068
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "09:00",
+      "closes": "18:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Saturday",
+      "opens": "10:00",
+      "closes": "16:00"
+    }
+  ]
 };
 
 export default function Home() {
@@ -38,23 +84,26 @@ export default function Home() {
       <Script id="organization-structured-data" type="application/ld+json">
         {JSON.stringify(structuredData)}
       </Script>
+      <Script id="local-business-structured-data" type="application/ld+json">
+        {JSON.stringify(localBusinessData)}
+      </Script>
       <MainLayout>
         <div className="max-w-7xl mx-auto">
           {/* Hero Section */}
           <section className="relative overflow-hidden rounded-xl mb-12 md:mb-16">
             <div className="bg-gradient-to-r from-amber-800 to-green-800 text-white py-10 px-4 md:py-16 lg:py-24 md:px-8 lg:px-12 rounded-xl">
               <div className="max-w-3xl">
-                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">Authentic Malaysian Delights</h1>
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">Authentic Malaysian Kuih Bakar</h1>
                 <p className="text-lg md:text-xl text-amber-100 mb-6 md:mb-8">
-                  Experience the rich, authentic flavors of Malaysia with our traditional 
-                  Kuih Bakar and Nasi Lemak, prepared with love and the finest ingredients.
+                  Experience the rich, authentic flavors of traditional Malaysian Kuih Bakar - 
+                  a beloved pandan coconut cake prepared with premium ingredients and authentic recipes.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-3 md:gap-4">
                   <a
                     className="bg-white text-amber-800 hover:bg-amber-100 px-5 py-3 rounded-full font-medium text-center transition-colors duration-200 text-sm md:text-base"
                     href="#featured-products"
                   >
-                    Explore Our Products
+                    Explore Our Kuih Bakar
                   </a>
                   <a
                     className="border border-white text-white hover:bg-white/10 px-5 py-3 rounded-full font-medium text-center transition-colors duration-200 text-sm md:text-base"
@@ -69,14 +118,22 @@ export default function Home() {
             <div className="absolute -top-8 -left-8 w-36 md:w-48 h-36 md:h-48 bg-green-600 rounded-full opacity-30 blur-3xl"></div>
           </section>
 
-          {/* About Us Section */}
+          {/* About Kuih Bakar Section */}
           <section className="mb-12 md:mb-16 px-4">
             <div className="text-center max-w-3xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold text-amber-800 mb-4 md:mb-6">Our Malaysian Heritage</h2>
-              <p className="text-gray-700 mb-6 md:mb-8 text-sm md:text-base">
-                We are passionate about bringing authentic Malaysian flavors to your table. Our recipes have been 
-                passed down through generations, preserving the rich culinary heritage of Malaysia. We use only 
-                the finest ingredients and traditional cooking methods to ensure an authentic taste experience.
+              <h2 className="text-2xl md:text-3xl font-bold text-amber-800 mb-4 md:mb-6">What is Kuih Bakar?</h2>
+              <p className="text-gray-700 mb-4 md:mb-6 text-sm md:text-base">
+                <strong>Kuih Bakar</strong> is a traditional Malaysian dessert that holds a special place in Malaysian culinary heritage. 
+                The name "Kuih Bakar" literally translates to "baked cake" in English, though it's quite different from Western-style cakes.
+              </p>
+              <p className="text-gray-700 mb-4 md:mb-6 text-sm md:text-base">
+                Made with a rich batter of coconut milk, eggs, flour, and pandan leaves (which give it its distinctive green color and fragrant aroma), 
+                Kuih Bakar is traditionally baked in special copper molds over charcoal fire, resulting in a dessert with a soft, custard-like interior 
+                and a slightly crisp, caramelized top.
+              </p>
+              <p className="text-gray-700 text-sm md:text-base">
+                Our passion is bringing authentic Malaysian flavors to your table. Our Kuih Bakar recipes have been 
+                passed down through generations, preserving the rich culinary heritage of Malaysia.
               </p>
             </div>
           </section>
@@ -96,10 +153,10 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="p-4 sm:p-6">
-                  <h3 className="text-xl sm:text-2xl font-semibold text-amber-800 mb-2 sm:mb-3">Kuih Bakar</h3>
+                  <h3 className="text-xl sm:text-2xl font-semibold text-amber-800 mb-2 sm:mb-3">Authentic Kuih Bakar</h3>
                   <p className="text-gray-700 mb-4 sm:mb-6 text-sm sm:text-base">
                     A beloved Malaysian dessert with rich pandan flavor, coconut milk, and palm sugar, 
-                    baked to perfection with a soft interior and slightly crisp top.
+                    baked to perfection with a soft interior and slightly crisp top. Made following traditional recipes.
                   </p>
                   <div className="flex justify-between items-center">
                     <span className="text-lg sm:text-xl font-bold text-amber-800">From RM 15.00</span>
@@ -145,7 +202,7 @@ export default function Home() {
 
           {/* Why Choose Us Section */}
           <section className="mb-12 md:mb-16 px-4 bg-amber-50 py-8 md:py-12 rounded-xl">
-            <h2 className="text-2xl md:text-3xl font-bold text-center text-amber-800 mb-8 md:mb-12">Why Choose Us</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-center text-amber-800 mb-8 md:mb-12">Why Our Kuih Bakar is Special</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
               <div className="bg-white p-5 sm:p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200">
                 <div className="w-12 h-12 bg-amber-800 rounded-full flex items-center justify-center mb-4 text-white">
@@ -155,7 +212,7 @@ export default function Home() {
                 </div>
                 <h3 className="text-lg sm:text-xl font-semibold text-amber-800 mb-2">Authentic Recipes</h3>
                 <p className="text-gray-700 text-sm sm:text-base">
-                  Our dishes are prepared following traditional Malaysian recipes that have been 
+                  Our Kuih Bakar is prepared following traditional Malaysian recipes that have been 
                   passed down through generations, ensuring authentic flavors in every bite.
                 </p>
               </div>
@@ -167,8 +224,8 @@ export default function Home() {
                 </div>
                 <h3 className="text-lg sm:text-xl font-semibold text-amber-800 mb-2">Premium Ingredients</h3>
                 <p className="text-gray-700 text-sm sm:text-base">
-                  We source only the finest ingredients, from fresh pandan leaves to premium coconut milk 
-                  and locally-sourced spices, to create the most authentic Malaysian flavors.
+                  We use only the finest ingredients, including fresh pandan leaves, premium coconut milk, 
+                  and high-quality palm sugar, to create the most authentic Kuih Bakar experience.
                 </p>
               </div>
               <div className="bg-white p-5 sm:p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200">
@@ -177,56 +234,71 @@ export default function Home() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7" />
                   </svg>
                 </div>
-                <h3 className="text-lg sm:text-xl font-semibold text-amber-800 mb-2">Made with Love</h3>
+                <h3 className="text-lg sm:text-xl font-semibold text-amber-800 mb-2">Handcrafted with Love</h3>
                 <p className="text-gray-700 text-sm sm:text-base">
-                  Each dish is prepared with care and attention to detail by our skilled chefs who are 
-                  passionate about sharing Malaysian culinary traditions with the world.
+                  Each Kuih Bakar is handcrafted with care and attention to detail by our skilled chefs who are 
+                  passionate about sharing Malaysian culinary traditions.
                 </p>
               </div>
             </div>
           </section>
 
-          {/* Call to Action Section */}
+          {/* Customer Testimonials */}
           <section className="mb-12 md:mb-16 px-4">
-            <div className="bg-gradient-to-r from-amber-800 to-green-800 text-white rounded-xl p-6 sm:p-8 md:p-12">
-              <div className="max-w-3xl mx-auto text-center">
-                <h2 className="text-2xl md:text-3xl font-bold mb-4 md:mb-6">Experience Authentic Malaysian Flavors Today</h2>
-                <p className="text-lg md:text-xl text-amber-100 mb-6 md:mb-8">
-                  Explore our range of traditional Malaysian delights and bring the authentic taste of Malaysia to your table.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center">
-                  <Link
-                    href="/kuih-bakar"
-                    className="bg-white text-amber-800 hover:bg-amber-100 px-5 py-3 rounded-full font-medium text-center transition-colors duration-200 text-sm md:text-base"
-                  >
-                    Explore Kuih Bakar
-                  </Link>
-                  <Link
-                    href="/contact"
-                    className="border border-white text-white hover:bg-white/10 px-5 py-3 rounded-full font-medium text-center transition-colors duration-200 text-sm md:text-base"
-                  >
-                    Contact Us
-                  </Link>
+            <h2 className="text-2xl md:text-3xl font-bold text-center text-amber-800 mb-8 md:mb-12">What Our Customers Say</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+              <div className="bg-white p-5 sm:p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200">
+                <div className="flex text-amber-500 mb-3">
+                  {[...Array(5)].map((_, i) => (
+                    <svg key={i} xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                  ))}
                 </div>
+                <p className="text-gray-700 mb-3 text-sm sm:text-base italic">
+                  "The most authentic Kuih Bakar I've tasted outside of my grandmother's kitchen. Perfect balance of pandan and coconut flavors!"
+                </p>
+                <p className="text-amber-800 font-medium">- Sarah Tan, Kuala Lumpur</p>
+              </div>
+              <div className="bg-white p-5 sm:p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200">
+                <div className="flex text-amber-500 mb-3">
+                  {[...Array(5)].map((_, i) => (
+                    <svg key={i} xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                  ))}
+                </div>
+                <p className="text-gray-700 mb-3 text-sm sm:text-base italic">
+                  "I've tried many versions of Kuih Bakar, but this one stands out. The balance of flavors is exceptional, and you can taste the quality of the ingredients."
+                </p>
+                <p className="text-amber-800 font-medium">- Ahmad Ibrahim, Penang</p>
               </div>
             </div>
           </section>
 
-          {/* Footer */}
-          <footer className="text-center text-gray-600 py-6 md:py-8 border-t border-gray-200">
-            <p className="text-sm md:text-base">&copy; {new Date().getFullYear()} Malaysian Delights. All rights reserved.</p>
-            <div className="flex justify-center space-x-4 mt-3 md:mt-4 text-sm md:text-base">
-              <a href="#" className="text-amber-800 hover:text-amber-600">
-                Privacy Policy
-              </a>
-              <a href="#" className="text-amber-800 hover:text-amber-600">
-                Terms of Service
-              </a>
-              <a href="/contact" className="text-amber-800 hover:text-amber-600">
-                Contact Us
-              </a>
+          {/* Call to Action */}
+          <section className="mb-12 md:mb-16 px-4">
+            <div className="bg-gradient-to-r from-amber-800 to-green-800 text-white py-8 px-6 md:py-12 md:px-8 rounded-xl text-center">
+              <h2 className="text-2xl md:text-3xl font-bold mb-4">Ready to Experience Authentic Kuih Bakar?</h2>
+              <p className="text-lg text-amber-100 mb-6 max-w-2xl mx-auto">
+                Order now and taste the rich tradition of Malaysian desserts, delivered fresh to your doorstep.
+              </p>
+              <div className="flex flex-col sm:flex-row justify-center gap-3 md:gap-4">
+                <Link
+                  href="/kuih-bakar"
+                  className="bg-white text-amber-800 hover:bg-amber-100 px-6 py-3 rounded-full font-medium text-center transition-colors duration-200 text-sm md:text-base"
+                >
+                  Explore Kuih Bakar
+                </Link>
+                <Link
+                  href="/contact"
+                  className="border border-white text-white hover:bg-white/10 px-6 py-3 rounded-full font-medium text-center transition-colors duration-200 text-sm md:text-base"
+                >
+                  Contact Us
+                </Link>
+              </div>
             </div>
-          </footer>
+          </section>
         </div>
       </MainLayout>
     </>
